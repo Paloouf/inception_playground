@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appli
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appli
+  template:
+    metadata:
+      labels:
+        app: appli
+    spec:
+      containers:
+        - image: wil42/playground:v1
+          name: appli
+      ports:
+        - containerPort: 8888
+          name: http
+          protocol: TCP
